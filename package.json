@@ -1,0 +1,36 @@
+{
+  "name": "grunt-wcjs",
+  "description": "Download Webchimera.js + Runtime + Deps",
+  "version": "1.0.0",
+  "author": {
+    "name": "BoLaMN",
+    "url": "https://github.com/BoLaMN"
+  },
+  "repository": "BoLaMN/grunt-wcjs",
+  "license": "ISC",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {},
+  "dependencies": {
+    "fs-extra": "^0.24.0",
+    "tar": "^2.2.1"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.10.0",
+    "decompress-zip": "0.0.4",
+    "github-releases": "0.2.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "gunzip-maybe": "^1.2.1",
+    "progress": "1.1.2",
+    "tar-fs": "^1.8.1",
+    "wrench": "1.5.4"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
+  },
+  "files": [
+    "tasks"
+  ]
+}
