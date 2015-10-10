@@ -22,9 +22,7 @@
     "github-releases": "0.2.1",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
-    "gunzip-maybe": "^1.2.1",
     "progress": "1.1.2",
-    "tar-fs": "^1.8.1",
     "wrench": "1.5.4"
   }
 }
