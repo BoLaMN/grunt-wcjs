@@ -3,8 +3,6 @@ path     = require 'path'
 os       = require 'os'
 GitHub   = require 'github-releases'
 
-manifest = require '../package.json'
-
 { downloadAndUnzip
   copyDirectory
   dirExistsSync } = require '../utils'
@@ -50,8 +48,8 @@ module.exports = (grunt) ->
   # Download the Electron binary for a platform
   [
     ['darwin', 'x64', 'darwin64', './electron/darwin64']
-    ['linux', 'ia32', 'linux32', './electron/linux32/opt/' + manifest.name]
-    ['linux', 'x64', 'linux64', './electron/linux64/opt/' + manifest.name]
+    ['linux', 'ia32', 'linux32', './electron/linux32/opt/' + grunt.package.name]
+    ['linux', 'x64', 'linux64', './electron/linux64/opt/' + grunt.package.name]
     ['win32', 'ia32', 'win32', './electron/win32']
     ['win32', 'x64', 'win64', './electron/win64']
   ].forEach (release) ->
@@ -130,7 +128,7 @@ module.exports = (grunt) ->
               rebuildNativeModules dist, apm, currentAtomShellVersion, distVersion, rebuild, done, appDir
 
               if dist is 'darwin64'
-                fs.renameSync outputDir + '/Electron.app', outputDir + '/' + manifest.name + '.app'
+                fs.renameSync outputDir + '/Electron.app', outputDir + '/' + grunt.package.name + '.app'
 
           return
 
