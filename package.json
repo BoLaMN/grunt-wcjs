@@ -1,7 +1,7 @@
 {
   "name": "grunt-wcjs",
   "description": "Download Webchimera.js + Runtime + Deps",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": {
     "name": "BoLaMN",
     "url": "https://github.com/BoLaMN"

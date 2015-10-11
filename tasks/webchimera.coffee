@@ -77,7 +77,7 @@ module.exports = (grunt) ->
       versionCacheDir = path.join(cacheDir, distVersion, runtime, dist)
 
       # Do nothing if the desired version of WebChimera.js is already installed.
-      if fileExistsSync(outputDir + '/WebChimera.js.node') and dirExistsSync(versionCacheDir)
+      if fileExistsSync(path.join(outputDir + '/WebChimera.js.node')) and dirExistsSync(versionCacheDir)
         grunt.log.error 'hrt'
         return done()
 
@@ -85,9 +85,11 @@ module.exports = (grunt) ->
       if dirExistsSync(versionCacheDir)
         grunt.log.writeln("Installing cached WebChimera.js #{distVersion}.")
         fs.ensureDirSync outputDir
-        copyFile versionCacheDir + '/WebChimera.js.node', outputDir  + '/WebChimera.js.node', done
-        return
+        copyFile path.join(versionCacheDir, 'WebChimera.js.node'), path.join(outputDir, 'WebChimera.js.node'), done
 
+
+      fs.ensureDirSync outputDir
+      
       # Request the assets.
       github = new GitHub repo: 'RSATom/WebChimera.js'
       
@@ -117,8 +119,9 @@ module.exports = (grunt) ->
                 return done false
 
               grunt.verbose.writeln "Installing WebChimera.js #{distVersion}."
-              copyDirectory(versionCacheDir, outputDir)
-              done()
+              grunt.verbose.writeln versionCacheDir + '/WebChimera.js.node'
+              grunt.verbose.writeln outputDir  + '/WebChimera.js.node'
+              copyFile path.join(versionCacheDir, 'WebChimera.js.node'), path.join(outputDir, 'WebChimera.js.node'), done
           return
 
         grunt.log.error "Cannot find #{filename} in electron #{distVersion} release"
